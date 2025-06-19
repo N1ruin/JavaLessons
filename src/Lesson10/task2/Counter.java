@@ -1,7 +1,7 @@
-package Lesson8.Task1;
+package Lesson10.task2;
 
 public class Counter {
-    public String name;
+    public final String name;
     public int count;
 
     public Counter(String name, int count) {
