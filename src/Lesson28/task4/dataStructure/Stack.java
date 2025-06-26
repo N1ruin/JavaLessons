@@ -1,7 +1,7 @@
 package Lesson28.task4.dataStructure;
 
 
-import Lesson28.task4.StackElementNotFoundException;
+import Lesson28.task4.exceptions.StackElementNotFoundException;
 
 public class Stack<T> {
     private StackElement<T> topElement;
