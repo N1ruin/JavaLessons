@@ -1,0 +1,3 @@
+Car{number='7777', vinNumber='oewq123', year=1999, color='white'}
+Car{number='1234', vinNumber='gfd0213', year=1988, color='yellow'}
+Car{number='3124', vinNumber='eq123', year=1999, color='blue'}
