@@ -1,8 +1,6 @@
-package Lesson21.model;
+package Lesson38.model;
 
-import java.util.Objects;
-
-public class Car {
+public class Car implements Comparable<Car> {
     private String color;
     private String number;
     private final CarIdentifier carIdentifier;
@@ -32,5 +30,10 @@ public class Car {
                 ", number='" + number + '\'' +
                 ", carIdentifier=" + carIdentifier +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return carIdentifier.compareTo(o.carIdentifier);
     }
 }

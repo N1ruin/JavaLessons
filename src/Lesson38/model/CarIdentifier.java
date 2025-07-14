@@ -1,8 +1,9 @@
-package Lesson21.model;
+package Lesson38.model;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public final class CarIdentifier {
+public final class CarIdentifier implements Comparable<CarIdentifier> {
     private final String vinNumber;
     private final int year;
 
@@ -29,5 +30,16 @@ public final class CarIdentifier {
     @Override
     public int hashCode() {
         return Objects.hash(vinNumber, year);
+    }
+
+    @Override
+    public int compareTo(CarIdentifier o) {
+        if (vinNumber.compareTo(o.vinNumber) > 0) {
+            return 1;
+        } else if (vinNumber.compareTo(o.vinNumber) < 0) {
+            return -1;
+        } else {
+            return year - o.getYear();
+        }
     }
 }
