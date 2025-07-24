@@ -44,7 +44,8 @@ public class BinaryTree<E> {
 
     public void remove(E element) {
         if (root == null) {
-            throw new RuntimeException("Tree is empty");
+            System.out.println("Tree is empty");
+            return;
         }
         root = remove(root, element);
         balance();
@@ -76,7 +77,7 @@ public class BinaryTree<E> {
         return node;
     }
 
-    public Node<E> findMaxElement(Node<E> node) {
+    private Node<E> findMaxElement(Node<E> node) {
         while (node.right != null) {
             node = node.right;
         }
@@ -84,25 +85,27 @@ public class BinaryTree<E> {
     }
 
     public void printElementsHeigth() {
-        printIntegerlementsHeight(root);
+        printElementsHeight(root);
     }
 
-    private void printIntegerlementsHeight(Node<E> node) {
+    private void printElementsHeight(Node<E> node) {
         if (node == null) {
             return;
         }
         System.out.println(node.value);
-        printIntegerlementsHeight(node.left);
-        printIntegerlementsHeight(node.right);
+        printElementsHeight(node.left);
+        printElementsHeight(node.right);
     }
 
-    public void printIntegerlementsWidth() {
+    public void printElementsWidth() {
         if (root == null) {
             System.out.println("Tree is empty");
             return;
         }
+
         Queue<Node<E>> queue = new LinkedList<>();
         queue.add(root);
+
         while (!queue.isEmpty()) {
             Node<E> current = queue.poll();
             System.out.println(current.value);
@@ -119,13 +122,14 @@ public class BinaryTree<E> {
         List<E> values = new ArrayList<>();
         copyElements(root, values);
 
-        root = addValuesOf(values, 0, values.size()-1);
+        root = addValuesOf(values, 0, values.size() - 1);
     }
 
     private void copyElements(Node<E> root, List<E> list) {
         if (root == null) {
             return;
         }
+
         copyElements(root.left, list);
         list.add(root.value);
         copyElements(root.right, list);

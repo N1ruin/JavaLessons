@@ -17,7 +17,7 @@ public class Main {
         System.out.println();
         binaryTree.printElementsHeigth();
         System.out.println();
-        binaryTree.printIntegerlementsWidth();
+        binaryTree.printElementsWidth();
 
     }
 }
