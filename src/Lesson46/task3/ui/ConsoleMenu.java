@@ -29,9 +29,9 @@ public class ConsoleMenu {
             if (menuItem == 0) {
                 running = false;
                 printMessageService.printExitMessage();
+            } else {
+                menuService.findCars(menuItem);
             }
-
-            menuService.findCars(menuItem);
         }
         inputService.close();
     }
