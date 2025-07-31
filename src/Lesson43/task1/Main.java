@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Main {
     public static final String SEPARATOR_REGEX = "[\\t ]+";
     public static final String SYMBOLS_REGEX = "[a-zA-Z-\\t ]+";
-    public static final String WORD_REGEX = "^[A-Za-z][A-Za-z-]+[A-Za-z]$";
     public static final String SIMPLE_WORD_REGEX = "^[A-Za-z]+$";
 
     public static void main(String[] args) {
@@ -61,37 +60,5 @@ public class Main {
         if (!word.matches(SIMPLE_WORD_REGEX)) {
             throw new InputStringValidationException();
         }
-    }
-
-
-    private static boolean isUniqueWord(String word, String[] uniqueWords) {
-        for (String uniqueWord : uniqueWords) {
-            if (uniqueWord == null) {
-                continue;
-            }
-            if (uniqueWord.equals(word)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private static void addWordToArray(String[] array, String word) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
-                array[i] = word;
-                return;
-            }
-        }
-    }
-
-    private static int calculateUniqueWords(String[] array) {
-        int result = 0;
-        for (String s : array) {
-            if (s != null) {
-                result++;
-            }
-        }
-        return result;
     }
 }
