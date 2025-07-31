@@ -24,7 +24,7 @@ public class ConsoleMenu {
         while (running) {
             printMessageService.printHelpMessage();
 
-            int menuItem = inputMenuItem();
+            int menuItem = Integer.parseInt(inputMenuItem());
 
             if (menuItem == 0) {
                 running = false;
@@ -36,15 +36,15 @@ public class ConsoleMenu {
         inputService.close();
     }
 
-    private int inputMenuItem() {
-        int menuItem = inputService.inputInt();
+    private String inputMenuItem() {
+        String menuItem = inputService.inputString();
 
         while (!inputValidationService.validationMenuItem(menuItem)) {
 
             printMessageService.printIncorrectMenuItem();
             printMessageService.printHelpMessage();
 
-            menuItem = inputService.inputInt();
+            menuItem = inputService.inputString();
         }
 
         return menuItem;

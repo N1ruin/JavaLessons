@@ -26,6 +26,6 @@ public class MenuMessages {
 
     public static final String CARS_NOT_FOUND_MESSAGE = "Машин не найдено";
 
-    public static final String INCORRECT_MENU_ITEM_MESSAGE = "Некорректный номер, попробуйте еще раз!";
+    public static final String INCORRECT_MENU_ITEM_MESSAGE = "Некорректный пункт меню, попробуйте еще раз!";
 }
 

@@ -4,8 +4,8 @@ import Lesson46.task3.util.constant.ValidationRegex;
 
 public class InputValidationService {
 
-    public boolean validationMenuItem(int input) {
-        return String.valueOf(input).matches(ValidationRegex.MENU_INPUT_PATTERN);
+    public boolean validationMenuItem(String input) {
+        return input.matches(ValidationRegex.MENU_ITEM_PATTERN);
     }
 
     public boolean validationCarNumber(String carNumber) {
@@ -20,7 +20,7 @@ public class InputValidationService {
         return numberFragment.matches(ValidationRegex.CAR_NUMBER_FRAGMENT_PATTERN);
     }
 
-    public boolean validationCarYear(int year) {
+    public boolean validationCarYear(String year) {
         return String.valueOf(year).matches(ValidationRegex.CAR_YEAR_PATTERN);
     }
 }

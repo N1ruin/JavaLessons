@@ -25,7 +25,6 @@ public class MenuService {
             case 2 -> result = searchCarsByNumberFragment();
             case 3 -> result = searchCarsByColor();
             case 4 -> result = searchCarsByYear();
-            case 0 -> printMessageService.printExitMessage();
         }
 
         printResult(result);
@@ -43,7 +42,6 @@ public class MenuService {
 
         while (!inputValidationService.validationCarNumber(number)) {
             System.out.println("Некорректный номер, попробуйте еще раз!");
-            printMessageService.printHelpMessage();
             number = inputService.inputString();
         }
 
@@ -61,8 +59,7 @@ public class MenuService {
         String fragment = inputService.inputString();
 
         while (!inputValidationService.validationCarNumberFragment(fragment)) {
-            System.out.println("Некорректный фрагмент, попробуйте еще раз!");
-            printMessageService.printHelpMessage();
+            System.out.println("Некорректный фрагмент номера, попробуйте еще раз!");
             fragment = inputService.inputString();
         }
 
@@ -80,8 +77,7 @@ public class MenuService {
         String color = inputService.inputString();
 
         while (!inputValidationService.validationCarColor(color)) {
-            System.out.println("Некорректный номер, попробуйте еще раз!");
-            printMessageService.printHelpMessage();
+            System.out.println("Некорректный цвет, попробуйте еще раз!");
             color = inputService.inputString();
         }
 
@@ -104,22 +100,26 @@ public class MenuService {
     }
 
     private int inputYear() {
-        int year = inputService.inputInt();
+        String year = inputService.inputString();
 
         while (!inputValidationService.validationCarYear(year)) {
             System.out.println("Некорректный год, попробуйте еще раз!");
-            printMessageService.printHelpMessage();
-            year = inputService.inputInt();
+            year = inputService.inputString();
         }
-        return year;
+        return Integer.parseInt(year);
     }
 
     private void printResult(Set<Car> result) {
-        if (result == null || result.isEmpty()) {
-            printMessageService.printCarNotFoundMessage();
-        } else {
+        if (result != null) {
+
+            if (result.isEmpty()) {
+                printMessageService.printCarNotFoundMessage();
+                return;
+            }
+
             System.out.println("Найдено %s машин:".formatted(result.size()));
             carService.printCar(result);
         }
     }
 }
+

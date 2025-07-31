@@ -13,12 +13,6 @@ public class InputService {
         return scanner.nextLine();
     }
 
-    public int inputInt() {
-        int input = scanner.nextInt();
-        scanner.nextLine();
-        return input;
-    }
-
     public void close() {
         scanner.close();
     }

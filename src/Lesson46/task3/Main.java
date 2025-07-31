@@ -8,7 +8,7 @@ import Lesson46.task3.ui.ConsoleMenu;
 public class Main {
     public static void main(String[] args) {
         InputValidationService inputValidationService = new InputValidationService();
-        InputService inputService = new InputService(inputValidationService);
+        InputService inputService = new InputService();
         PrintMessageService printMessageService = new PrintMessageService();
         CarService carService = new CarService();
         MenuService menuService = new MenuService(printMessageService, inputValidationService, carService, inputService);
